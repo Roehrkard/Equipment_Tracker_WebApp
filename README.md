@@ -8,7 +8,7 @@ A Mock Webapp.
 - Docker (todo) 
 
 ### Running steps
-1. Open Terminal and access a MySQl instance
+1. Open Terminal and access a MySQL instance
 2. Copy and paste all the MySQL Database Commands
 3. Update application.properties with MySQL URL, username, password
 4. Open Terminal and navigate to equipment-tracker directory
