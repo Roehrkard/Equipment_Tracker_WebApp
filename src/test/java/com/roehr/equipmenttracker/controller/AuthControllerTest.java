@@ -38,12 +38,10 @@ public class AuthControllerTest {
 
     @Test
     public void testAuthenticateUserSuccess() throws Exception {
-        LoginDto loginDto = new LoginDto("user", "1234"); // Create a LoginDto object
+        LoginDto loginDto = new LoginDto("user", "1234"); 
 
-        // Mock the userService to return true for authentication
         when(userService.authenticateUser(loginDto.getUsername(), loginDto.getProvidedPin())).thenReturn(true);
 
-        // Mock the tokenService to return a token
         when(tokenService.createToken(loginDto.getUsername())).thenReturn("token");
 
         mockMvc.perform(post("/api/authenticate")

@@ -19,7 +19,7 @@ public class CorsIntegrationTest {
 
     @Test
     public void testCorsHeaders() throws Exception {
-        mockMvc.perform(options("/api/authenticate") // Use the actual authentication path
+        mockMvc.perform(options("/api/authenticate") 
                         .header("Access-Control-Request-Method", "POST")
                         .header("Origin", "http://localhost:4200"))
                 .andExpect(status().isOk())

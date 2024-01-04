@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from './services/user.service'; // Update the path as necessary
+import { UserService } from './services/user.service'; 
 
 @Component({
   selector: 'app-root',

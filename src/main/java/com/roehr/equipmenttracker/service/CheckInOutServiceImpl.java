@@ -59,7 +59,7 @@ public class CheckInOutServiceImpl implements CheckInOutService {
         transaction.setEquipmentId(equipment.getId());
         transaction.setEquipmentName(equipment.getName());
         transaction.setQuantity(quantity);
-        logger.info("Set transaction quantity: {}", transaction.getQuantity());  // Logging the quantity set in the transaction
+        logger.info("Set transaction quantity: {}", transaction.getQuantity());  
         transaction.setStatus("Checked In");
         transaction.setTransactionDate(new Date());
         transactionService.save(transaction);

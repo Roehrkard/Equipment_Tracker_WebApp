@@ -25,7 +25,6 @@ public class CheckInOutController {
 
     @PostMapping("/checkout")
     public ResponseEntity<Transaction> checkoutEquipment(@RequestBody CheckoutCheckinRequest request) {
-        // Log the received request data
         logger.info("Checkout request - Username: {}, Equipment ID: {}, Quantity: {}",
                 request.getUsername(), request.getEquipmentId(), request.getQuantity());
 
@@ -34,20 +33,16 @@ public class CheckInOutController {
         Equipment equipment = equipmentService.findById(request.getEquipmentId());
 
         if (equipment != null) {
-            // Calculate the new quantity
             int updatedQty = equipment.getQty() - request.getQuantity();
 
-            // Update the equipment's quantity with the new value
             equipmentService.updateEquipmentQuantity(request.getEquipmentId(), updatedQty);
 
             if (updatedQty == 0) {
                 equipmentService.updateEquipmentStatus(request.getEquipmentId(), "Unavailable");
             }
 
-            // The equipment status and quantity have been updated successfully
             return ResponseEntity.ok(transaction);
         } else {
-            // Handle the case where the equipment doesn't exist or couldn't be updated
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
@@ -56,20 +51,15 @@ public class CheckInOutController {
     public ResponseEntity<Transaction> checkinEquipment(@RequestBody CheckoutCheckinRequest request) {
         Transaction transaction = checkInOutService.checkinEquipment(request.getUserId(), request.getEquipmentId(), request.getQuantity());
 
-        // Update the equipment status to "Available"
         Equipment equipment = equipmentService.updateEquipmentStatus(request.getEquipmentId(), "Available");
 
         if (equipment != null) {
-            // Calculate the new quantity
             int newQty = equipment.getQty() + request.getQuantity();
 
-            // Update the equipment's quantity with the new value
             equipmentService.updateEquipmentQuantity(request.getEquipmentId(), newQty);
 
-            // The equipment status and quantity have been updated successfully
             return ResponseEntity.ok(transaction);
         } else {
-            // Handle the case where the equipment doesn't exist or couldn't be updated
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
@@ -82,7 +72,6 @@ public class CheckInOutController {
         private Long equipmentId;
         private int quantity;
 
-        // Getters and Setters
         public Long getUserId() {
             return userId;
         }
@@ -116,16 +105,3 @@ public class CheckInOutController {
         }
     }
 }
-
-
-
-//    @PostMapping("/checkout")
-//    public ResponseEntity<Transaction> checkoutEquipment(@RequestBody CheckoutCheckinRequest request) {
-//        // Log the received request data
-//        logger.info("Checkout request - Username: {}, Equipment ID: {}, Quantity: {}",
-//                request.getUsername(), request.getEquipmentId(), request.getQuantity());
-//
-//        Transaction transaction = checkInOutService.checkoutEquipment(request.getUsername(), request.getEquipmentId(), request.getQuantity());
-//
-//        return new ResponseEntity<>(transaction, HttpStatus.CREATED);
-//    }

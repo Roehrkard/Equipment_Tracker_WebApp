@@ -33,7 +33,7 @@ public class Transaction {
     @Column(nullable = false)
     private String status;
 
-    // Getters
+    // Getters & Setters
     public Long getTransactionId() {
         return transactionId;
     }

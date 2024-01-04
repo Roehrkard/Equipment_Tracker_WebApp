@@ -1,14 +1,14 @@
-<!-- Display error message if present -->
-<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
-
-<form (ngSubmit)="onSubmit($event)">
-    <div>
+<div class="login-container">
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  <form (ngSubmit)="onSubmit($event)" class="login-form">
+    <div class="form-field">
       <label for="username">Username:</label>
       <input type="text" id="username" [(ngModel)]="username" name="username" required>
     </div>
-    <div>
+    <div class="form-field">
       <label for="providedPin">Pin:</label>
       <input type="password" id="providedPin" [(ngModel)]="providedPin" name="providedPin" required>
     </div>
     <button type="submit">Login</button>
-</form>
+  </form>
+</div>

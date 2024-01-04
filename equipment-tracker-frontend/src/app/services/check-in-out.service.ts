@@ -2,14 +2,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Transaction } from '../models/transaction.model'; // Adjust the path as necessary
-import { ExtendedEquipment } from '../models/extended-equipment.model'; // Adjust the path as necessary
+import { Transaction } from '../models/transaction.model'; 
+import { ExtendedEquipment } from '../models/extended-equipment.model'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckInOutService {
-  private apiUrl = 'http://localhost:8080/api'; // Replace with your backend base URL
+  private apiUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) {}
 

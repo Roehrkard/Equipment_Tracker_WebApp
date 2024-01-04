@@ -1,35 +1,39 @@
 <!-- equipment-checkout.component.html -->
-<div>
+<div class="equipment-checkout">
   <h2>Equipment Checkout</h2>
 
-  <!-- Alert Message -->
   <div *ngIf="alertMessage" class="alert" [ngClass]="{'alert-success': alertType === 'success', 'alert-danger': alertType === 'error'}">
     {{ alertMessage }}
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Quantity Available</th>
-        <th>Select Quantity</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let equipment of equipments">
-        <td>{{ equipment.name }}</td>
-        <td>{{ equipment.description }}</td>
-        <td>{{ equipment.status }}</td>
-        <td>{{ equipment.qty }}</td>
-        <td> 
-          <select [(ngModel)]="equipment.selectedQty" (ngModelChange)="validateCheckout()">
-            <option *ngFor="let n of [].constructor(equipment.qty + 1); let i = index" [value]="i">{{ i }}</option>
-          </select>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <button (click)="checkout()" [disabled]="!isCheckoutValid">Checkout</button>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="name-column">Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Qty.</th>
+          <th class="amount-column">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipment of equipments">
+          <td>{{ equipment.name }}</td>
+          <td>{{ equipment.description }}</td>
+          <td>{{ equipment.status }}</td>
+          <td>{{ equipment.qty }}</td>
+          <td>
+            <select [(ngModel)]="equipment.selectedQty" (ngModelChange)="validateCheckout()" class="amount-select">
+              <option *ngFor="let n of [].constructor(equipment.qty + 1); let i = index" [value]="i">{{ i }}</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="button-container">
+    <button (click)="checkout()" [disabled]="!isCheckoutValid">Checkout</button>
+  </div>
 </div>

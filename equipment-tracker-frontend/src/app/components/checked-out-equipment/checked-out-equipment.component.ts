@@ -17,7 +17,7 @@ export class CheckedOutEquipmentComponent implements OnInit {
   constructor(
     private transactionService: TransactionService,
     private userService: UserService,
-    private checkInOutService: CheckInOutService // Inject CheckInOutService
+    private checkInOutService: CheckInOutService 
   ) {}
 
   ngOnInit(): void {

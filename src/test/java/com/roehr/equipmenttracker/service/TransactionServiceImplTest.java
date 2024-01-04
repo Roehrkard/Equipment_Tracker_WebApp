@@ -26,7 +26,6 @@ public class TransactionServiceImplTest {
     @Test
     public void testSaveTransaction() {
         Transaction transaction = new Transaction();
-        // Set transaction data
         when(transactionRepository.save(any(Transaction.class))).thenReturn(transaction);
 
         Transaction savedTransaction = transactionService.save(transaction);

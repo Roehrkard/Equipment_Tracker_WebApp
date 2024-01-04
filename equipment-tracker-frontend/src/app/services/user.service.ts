@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { TokenService } from './token.storage.service'; // Corrected import path
+import { TokenService } from './token.storage.service'; 
 import { User } from '../models/user.model';
 import { tap } from 'rxjs/operators';
 import { jwtDecode } from "jwt-decode";
@@ -10,8 +10,8 @@ import { jwtDecode } from "jwt-decode";
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/api/users'; // Backend API URL for user-related operations
-  private authUrl = 'http://localhost:8080/api/authenticate'; // Backend API URL for authentication
+  private apiUrl = 'http://localhost:8080/api/users'; 
+  private authUrl = 'http://localhost:8080/api/authenticate'; 
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
@@ -19,7 +19,7 @@ export class UserService {
     return this.http.post<{ authenticated: boolean, token?: string }>(this.authUrl, { username, providedPin }).pipe(
       tap((response) => {
         if (response.token) {
-          // Store the token using TokenService
+          
           this.tokenService.setToken(response.token);
         }
       })
@@ -39,14 +39,13 @@ export class UserService {
       const username = decodedToken.sub;
       return of(username);
     }
-    return of(null); // Token not available
+    return of(null); 
   }
 
   logout(): void {
     this.tokenService.removeToken();
   }
 
-  // Method to check if a user is authenticated
   isAuthenticated(): boolean {
     return !!this.tokenService.getToken();
   }

@@ -18,7 +18,7 @@ public class TokenService {
     public String createToken(String username) {
         logger.info("Creating token for user: {}", username);
         Date now = new Date();
-        long validityInMilliseconds = 3600000; // 1 hour
+        long validityInMilliseconds = 3600000; 
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
         String token = Jwts.builder()
@@ -43,12 +43,6 @@ public class TokenService {
             return false;
         }
     }
-
-
-    // private Boolean isTokenExpired(String token) {
-    //     final Date expiration = getExpirationDateFromToken(token);
-    //     return expiration.before(new Date());
-    // }
 
     public Date getExpirationDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);

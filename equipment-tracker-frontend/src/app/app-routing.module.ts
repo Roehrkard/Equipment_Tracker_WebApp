@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard'; // Import the AuthGuard
+import { AuthGuard } from './auth.guard'; 
 
 import { EquipmentCheckoutComponent } from './components/equipment-checkout/equipment-checkout.component';
 import { CheckedOutEquipmentComponent } from './components/checked-out-equipment/checked-out-equipment.component';
@@ -20,17 +20,17 @@ const routes: Routes = [
   {
     path: 'equipment-checkout',
     component: EquipmentCheckoutComponent,
-    canActivate: [AuthGuard] // Protect this route with AuthGuard
+    canActivate: [AuthGuard] 
   },
   {
     path: 'checked-out-equipment',
     component: CheckedOutEquipmentComponent,
-    canActivate: [AuthGuard] // Protect this route with AuthGuard
+    canActivate: [AuthGuard] 
   },
   {
     path: 'equipment-transaction-history',
     component: EquipmentTransactionHistoryComponent,
-    canActivate: [AuthGuard] // Protect this route with AuthGuard
+    canActivate: [AuthGuard] 
   },
   {
     path: '**',

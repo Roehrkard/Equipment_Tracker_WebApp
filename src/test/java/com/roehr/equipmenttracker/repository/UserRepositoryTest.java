@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DataJpaTest
-@Transactional  // Enable transaction management for the test
-@Rollback  // Roll back transactions after each test
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // Disable auto-configuration of the test database
-@ActiveProfiles("mysql") // Set the active profile to "mysql"
+@Transactional  
+@Rollback 
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) 
+@ActiveProfiles("mysql") 
 public class UserRepositoryTest {
 
     @Autowired
@@ -24,18 +24,14 @@ public class UserRepositoryTest {
 
     @Test
     public void testUserSaveAndRetrieve() {
-        // Create a new user
+     
         User newUser = new User("testUsername", "testPassword");
 
-        // Save the user
         User savedUser = userRepository.save(newUser);
 
-        // Retrieve the user
         User retrievedUser = userRepository.findById(savedUser.getId()).orElse(null);
 
-        // Assert that the retrieved user is not null and properties match
         assertNotNull(retrievedUser);
         assertEquals("testUsername", retrievedUser.getUsername());
-        // The password is hashed, so a direct comparison is not possible in this case
     }
 }

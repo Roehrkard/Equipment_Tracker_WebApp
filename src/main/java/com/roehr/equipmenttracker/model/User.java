@@ -16,7 +16,6 @@ public class User {
     @Column(nullable = false)
     private String hashedPin;
 
-    // Default constructor for JPA
     public User() {
     }
 
@@ -39,12 +38,11 @@ public class User {
         return hashedPin;
     }
 
-    // Setter for username
+    // Setter for username & id
     public void setUsername(String username) {
         this.username = username;
     }
 
-    // Setter for id
     public void setId(Long id) {
         this.id = id;
     }

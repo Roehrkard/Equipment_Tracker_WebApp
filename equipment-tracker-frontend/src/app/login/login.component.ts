@@ -23,14 +23,11 @@ export class LoginComponent {
     event.preventDefault();
     this.errorMessage = '';
 
-    // Authenticate the user using the provided credentials
     this.userService.authenticateUser(this.username, this.providedPin).subscribe({
       next: (response) => {
         if (response.token) {
-          // Store the token in localStorage
           localStorage.setItem('token', response.token);
 
-          // Redirect to the desired page (e.g., equipment-checkout)
           this.router.navigate(['/equipment-checkout']);
         } else {
           this.errorMessage = 'Token not provided in the response';
@@ -48,7 +45,6 @@ export class LoginComponent {
 
   logout() {
     this.userService.logout();
-    // Redirect to the login page or home page after logout
     this.router.navigate(['/login']);
   }
 }

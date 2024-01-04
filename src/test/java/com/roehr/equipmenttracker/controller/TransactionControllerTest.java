@@ -40,37 +40,31 @@ public class TransactionControllerTest {
 
     @Test
     public void testCreateTransaction() throws Exception {
-        // Prepare a sample transaction
+  
         Transaction transaction = new Transaction();
         transaction.setTransactionDate(new Date());
-        // Set other properties as needed
 
-        // Mock the service to return the saved transaction
+
         when(transactionService.save(any(Transaction.class))).thenReturn(transaction);
 
-        // Perform the POST request
         mockMvc.perform(post("/api/transactions")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(asJsonString(transaction)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.transactionDate").exists()); // Verify the response
+                .andExpect(jsonPath("$.transactionDate").exists()); 
     }
 
     @Test
     public void testGetTransactionsByUserId() throws Exception {
-        // Prepare a sample list of transactions
         List<Transaction> transactions = Collections.singletonList(new Transaction());
 
-        // Mock the service to return the list of transactions
         when(transactionService.getTransactionsByUserId(1L)).thenReturn(transactions);
 
-        // Perform the GET request
         mockMvc.perform(get("/api/transactions/user/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$").isArray()); // Verify the response as a JSON array
+                .andExpect(jsonPath("$").isArray());
     }
 
-    // Helper method to convert an object to JSON
     private String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);

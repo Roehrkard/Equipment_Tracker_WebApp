@@ -54,7 +54,7 @@ public class EquipmentServiceImpl implements EquipmentService {
 
     @Override
     public Equipment save(Equipment equipment, String status) {
-        equipment.setStatus(status); // Set the status before saving
+        equipment.setStatus(status); 
         return equipmentRepository.save(equipment);
     }
 }

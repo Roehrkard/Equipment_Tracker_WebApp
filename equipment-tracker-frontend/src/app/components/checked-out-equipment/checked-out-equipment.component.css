@@ -1,0 +1,59 @@
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  table th, table td {
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+  
+  .narrow-column {
+    width: 90px; 
+  }
+  
+  /* Specific column widths */
+  table th:nth-child(1), /* Transaction ID */
+  table td:nth-child(1),
+  table th:nth-child(5), /* Qty */
+  table td:nth-child(5),
+  table th:nth-child(6), /* Select */
+  table td:nth-child(6) {
+    width: 100px; 
+  }
+  
+  table th:nth-child(4), /* Status */
+  table td:nth-child(4) {
+    width: 120px; 
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+    text-align: center; 
+  }
+  
+  /* Styling for the check-in button container */
+  .button-container {
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+    padding-right: 25px; 
+  }
+  
+  .button-container button {
+    padding: 10px 20px; 
+    min-width: 120px; 
+
+  }
+
+  

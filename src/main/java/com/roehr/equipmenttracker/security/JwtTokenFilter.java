@@ -13,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
-// If you're using a custom TokenService to handle JWT operations, import it here
 
 
 public class JwtTokenFilter extends GenericFilterBean {
@@ -36,7 +35,7 @@ public class JwtTokenFilter extends GenericFilterBean {
     }
 
     private String resolveToken(HttpServletRequest request) {
-        // Extract token from Authorization header
+
         String bearerToken = request.getHeader("Authorization");
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
             return bearerToken.substring(7);
@@ -45,12 +44,12 @@ public class JwtTokenFilter extends GenericFilterBean {
     }
 
     private boolean validateToken(String token) {
-        // Validate the token using TokenService
+   
         return tokenService.validateToken(token);
     }
 
     private Authentication getAuthentication(String token) {
-        // Extract username from token and create authentication object
+
         String username = tokenService.getUsernameFromToken(token);
         return new UsernamePasswordAuthenticationToken(username, null, Collections.emptyList());
     }

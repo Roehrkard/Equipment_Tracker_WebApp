@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from '../../models/transaction.model'; // Update the path as needed
-import { TransactionService } from '../../services/transaction.service'; // Update the path as needed
+import { Transaction } from '../../models/transaction.model'; 
+import { TransactionService } from '../../services/transaction.service'; 
 
 @Component({
   selector: 'app-equipment-transaction-history',
@@ -15,7 +15,9 @@ export class EquipmentTransactionHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.transactionService.getAllTransactions().subscribe({
       next: (data) => {
-        this.transactions = data;
+        this.transactions = data.sort((a, b) => {
+          return new Date(b.transactionDate).getTime() - new Date(a.transactionDate).getTime();
+        });
       },
       error: (error) => {
         console.error('Error fetching transactions:', error);

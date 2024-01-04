@@ -1,7 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-/* Global Styles */
 
-/* Apply to all pages */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -38,7 +35,7 @@ tr:hover {
 }
 
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     color: white;
     padding: 10px 20px;
     margin: 20px 0;
@@ -51,15 +48,12 @@ button:hover {
     background-color: hsl(123, 40%, 45%);
 }
 
-/* styles.css (or your preferred CSS file) */
-
-/* Style for the horizontal menu */
 .horizontal-menu ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: space-around;
-    background-color: #4e4e4e; /* Background color for the menu */
+    background-color: #4e4e4e; 
   }
   
   .horizontal-menu li {
@@ -69,14 +63,14 @@ button:hover {
   
   .horizontal-menu a {
     display: block;
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 10px 20px; 
     text-decoration: none;
-    color: #fff; /* Text color for menu items */
+    color: #fff; 
   }
   
   .horizontal-menu a:hover {
-  background-color: #555; /* Background color on hover */
-  color: #ff6600; /* Text color on hover (change to your desired color) */
+  background-color: #555; 
+  color: #ff6600; 
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

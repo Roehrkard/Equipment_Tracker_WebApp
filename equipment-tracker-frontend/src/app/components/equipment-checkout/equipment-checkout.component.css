@@ -1,0 +1,48 @@
+/* ... existing CSS ... */
+
+.name-column {
+    width: 200px; 
+  }
+  
+  .status-column {
+    width: 120px; 
+  }
+  
+  .qty-column {
+    width: 100px; 
+  }
+  
+  .amount-column {
+    width: 150px;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+  
+  .amount-select {
+    width: 30%; 
+    box-sizing: border-box; 
+  }
+  
+  
+  table .status-column,
+  table .qty-column,
+  table .amount-column {
+    text-align: center;
+  }
+  
+
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end; 
+    padding-right: 25px; 
+  }
+  
+ 
+  .button-container button {
+    padding: 10px 20px; 
+    min-width: 120px; 
+  }
+  

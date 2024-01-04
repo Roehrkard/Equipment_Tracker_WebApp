@@ -1,5 +1,5 @@
 // src/environments/environment.prod.ts
 export const environment = {
   production: true,
-  //apiUrl: 'https://production-api.example.com/api', // Production API URL 
+  apiUrl: 'http://localhost:8080/api',
 };

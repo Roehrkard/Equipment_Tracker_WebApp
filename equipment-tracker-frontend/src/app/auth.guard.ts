@@ -14,10 +14,10 @@ export class AuthGuard implements CanActivate {
     const token = this.tokenService.getToken();
 
     if (token) {
-      // Token exists, allow route
+   
       return true;
     } else {
-      // No token, redirect to login
+
       this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
       return false;
     }

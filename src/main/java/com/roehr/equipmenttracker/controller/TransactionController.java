@@ -37,5 +37,4 @@ public class TransactionController {
         return ResponseEntity.ok(transactions);
     }
 
-    // Additional endpoints as needed
 }
